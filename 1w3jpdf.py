@@ -56,7 +56,8 @@ PARSER.add_argument('-o', '--output',
                     )
 PARSER.add_argument('-sa', '--special-annotations',
                     action="store_true",
-                    help='If not even pdf-unstamper can remove some annotations, try removing those by using sed, '
+                    help='USE WITH CAUTION (first test on a duplicated file). If not even pdf-unstamper '
+                         'can remove some annotations, try removing those by using sed, '
                          'see which they are at the script variable SPECIAL_ANNOYINGTATIONS '
                     )
 
@@ -85,6 +86,7 @@ ANNOYINGTATIONS = add_keyword('www.allitebooks.com') + \
                   add_keyword('www.it-ebooks.info') + \
                   add_keyword('www.ebook3000.com') + \
                   add_keyword('it-ebooks.info') + \
+                  add_keyword('Free ebooks ==>   www.Ebook777.com') + \
                   add_keyword('free ebooks ==>   www.ebook777.com') + \
                   add_keyword('free ebooks ==> www.ebook777.com') + \
                   add_keyword("free ebooks ==>") + \
@@ -103,7 +105,8 @@ ANNOYINGTATIONS = add_keyword('www.allitebooks.com') + \
                   add_keyword('www.dbebooks.com - Free Books & magazines') + \
                   add_keyword('Licensed to   <null>') + \
                   add_keyword('Download at Boykma.Com') + \
-                  add_keyword('Download at Boykma.Com') + \
+                  add_keyword('Download at Boykma.com') + \
+                  add_keyword('Download at WoweBook.Com') + \
                   add_keyword('Download at WoweBook.com') + \
                   add_keyword('boykma.com') + \
                   add_keyword('ebookee.org') + \
@@ -116,9 +119,11 @@ ANNOYINGTATIONS = add_keyword('www.allitebooks.com') + \
                   add_keyword(':: Collected by PhaKaKrong ::') + \
                   add_keyword(':: Cllected by PhaKaKrong ::') + \
                   add_keyword('v@v')
-# _e('s/\/URI//')
+# _e('s/\/URI//') # This will erase all hyperlinks on the document including TOCs
 
-SPECIAL_ANNOYINGTATIONS = add_special_keyword('\(Download \).*\(at\)')  # Download at Boykma.Com
+#SPECIAL_ANNOYINGTATIONS = add_special_keyword('.*Download \).*\(at\)')  # Download at Boykma.Com -> problem is, it also searches for 'Download ' text on actual document paragraphs
+SPECIAL_ANNOYINGTATIONS = add_special_keyword('.*Boykma\.Com') + \
+                          add_special_keyword('.*WoweBook\.Com')  # Download at WoweBook.Com
 
 ARGS = PARSER.parse_args()
 PASSED_FILES = ARGS.files[:]
@@ -199,7 +204,7 @@ for file in ACTUAL_FILES:
         remove_previous_line()
 
         if not ARGS.do_not_remove_annotations and not ARGS.special_annotations and exiftool.wait() == 0:
-            print(colored(str(COUNT) + ") Removing annotations on '" + filename[0:60] + "'...", "yellow"))
+            print(colored(str(COUNT) + ") Removing annotations on '" + filename[0:60] + "...'", "yellow"))
             unstamp = subprocess.call(unstamp_cmd, stdout=DEVNULL)
             remove_previous_line()
 
