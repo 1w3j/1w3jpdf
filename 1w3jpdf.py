@@ -127,6 +127,7 @@ ANNOYINGTATIONS = add_keyword('www.allitebooks.com') + \
                   add_keyword('WOW!') + \
                   add_keyword('More free ebooks  :  http://fast-file.blogspot.com') + \
                   add_keyword('www.dbebooks.com - Free Books & magazines') + \
+                  add_keyword('www.eBookTM.com') + \
                   add_keyword('v@v')
 # _e('s/\/URI//') # This will erase all hyperlinks on the document including TOCs
 
@@ -137,6 +138,7 @@ SPECIAL_ANNOYINGTATIONS = add_special_keyword('.*Boykma\.Com') + \
                           add_special_keyword('More free ebooks  :  http:\/\/fast\-file\.blogspot\.com') + \
                           add_special_keyword('Download from Wow! eBook <www.wowebook.com>') + \
                           add_special_keyword('www\.dbebooks\.com \- Free Books \& magazines') + \
+                          add_special_keyword('Download from www.eBookTM.com') + \
                           add_special_keyword('.*WoweBook\.Com')  # Download at WoweBook.Com
 
 ARGS = PARSER.parse_args()
