@@ -2,9 +2,10 @@
 """
 1w3j's PDF management tool:
 TODO:
-    - Fix v@v tags not being removed, needs testing
+    - Fix v@v, BOOKLEET tags not being removed, needs testing
     - Detect TruePDFs vs converted PDFs
     - Detect _unc and _unc_sed files before processing special annotations to avoid deleting unwanted files
+    - Refactor remove_previous_line function to print void characters according to the quantity of chars used on logging
 """
 import os
 import subprocess
@@ -86,6 +87,7 @@ ANNOYINGTATIONS = add_keyword('www.allitebooks.com') + \
                   add_keyword('www.it-ebooks.info') + \
                   add_keyword('www.ebook3000.com') + \
                   add_keyword('it-ebooks.info') + \
+                  add_keyword('WOW! eBook\nwww.wowebook.org') + \
                   add_keyword('Free ebooks ==>   www.Ebook777.com') + \
                   add_keyword('free ebooks ==>   www.ebook777.com') + \
                   add_keyword('free ebooks ==> www.ebook777.com') + \
@@ -112,17 +114,29 @@ ANNOYINGTATIONS = add_keyword('www.allitebooks.com') + \
                   add_keyword('ebookee.org') + \
                   add_keyword('ebook3000.com') + \
                   add_keyword('Download from Wow! eBook <www.wowebook.com>') + \
+                  add_keyword('WOW! eBook') + \
                   add_keyword('Wow! eBook') + \
                   add_keyword('Wow eBook') + \
+                  add_keyword('www.wowebook.org') + \
                   add_keyword('https://sci101web.wordpress.com') + \
                   add_keyword('Download from Join eBook (www.joinebook.com)') + \
                   add_keyword(':: Collected by PhaKaKrong ::') + \
                   add_keyword(':: Cllected by PhaKaKrong ::') + \
+                  add_keyword('BOOKLEET ©') + \
+                  add_keyword('BOOKLEET') + \
+                  add_keyword('WOW!') + \
+                  add_keyword('More free ebooks  :  http://fast-file.blogspot.com') + \
+                  add_keyword('www.dbebooks.com - Free Books & magazines') + \
                   add_keyword('v@v')
 # _e('s/\/URI//') # This will erase all hyperlinks on the document including TOCs
 
 #SPECIAL_ANNOYINGTATIONS = add_special_keyword('.*Download \).*\(at\)')  # Download at Boykma.Com -> problem is, it also searches for 'Download ' text on actual document paragraphs
 SPECIAL_ANNOYINGTATIONS = add_special_keyword('.*Boykma\.Com') + \
+                          add_special_keyword('WOW\! eBook') + \
+                          add_special_keyword('www\.wowebook\.org') + \
+                          add_special_keyword('More free ebooks  :  http:\/\/fast\-file\.blogspot\.com') + \
+                          add_special_keyword('Download from Wow! eBook <www.wowebook.com>') + \
+                          add_special_keyword('www\.dbebooks\.com \- Free Books \& magazines') + \
                           add_special_keyword('.*WoweBook\.Com')  # Download at WoweBook.Com
 
 ARGS = PARSER.parse_args()
@@ -249,7 +263,7 @@ for file in ACTUAL_FILES:
 
         print(EXIFTOOL_LOG)
 
-        if os.path.exists(file):
+        if os.path.exists(file + '_original'):
             os.remove(file + '_original')  # pdf_original file created by exiftool
 
         if ARGS.output is not None:
