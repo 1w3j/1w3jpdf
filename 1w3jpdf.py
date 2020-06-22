@@ -113,6 +113,7 @@ ANNOYINGTATIONS = add_keyword('www.allitebooks.com') + \
                   add_keyword('boykma.com') + \
                   add_keyword('ebookee.org') + \
                   add_keyword('ebook3000.com') + \
+                  add_keyword('From the Library of Wow! eBook') + \
                   add_keyword('Download from Wow! eBook <www.wowebook.com>') + \
                   add_keyword('WOW! eBook') + \
                   add_keyword('Wow! eBook') + \
@@ -135,6 +136,7 @@ ANNOYINGTATIONS = add_keyword('www.allitebooks.com') + \
 SPECIAL_ANNOYINGTATIONS = add_special_keyword('.*Boykma\.Com') + \
                           add_special_keyword('WOW\! eBook') + \
                           add_special_keyword('www\.wowebook\.org') + \
+                          add_special_keyword('www\.allitebooks\.com') + \
                           add_special_keyword('More free ebooks  :  http:\/\/fast\-file\.blogspot\.com') + \
                           add_special_keyword('Download from Wow! eBook <www.wowebook.com>') + \
                           add_special_keyword('www\.dbebooks\.com \- Free Books \& magazines') + \
