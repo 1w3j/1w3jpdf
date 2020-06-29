@@ -2,7 +2,7 @@
 """
 1w3j's PDF management tool:
 TODO:
-    - Fix v@v, BOOKLEET tags not being removed, needs testing
+    - Fix v@v, BOOKLEET, ebookTM tags not being removed, needs testing
     - Detect TruePDFs vs converted PDFs
     - Detect _unc and _unc_sed files before processing special annotations to avoid deleting unwanted files
     - Refactor remove_previous_line function to print void characters according to the quantity of chars used on logging
@@ -93,6 +93,7 @@ ANNOYINGTATIONS = add_keyword('www.allitebooks.com') + \
                   add_keyword('free ebooks ==> www.ebook777.com') + \
                   add_keyword("free ebooks ==>") + \
                   add_keyword('http://free-pdf-books.com') + \
+                  add_keyword('http://www.freepdf-books.com') + \
                   add_keyword('http://freepdf-books.com') + \
                   add_keyword('www.freepdf-books.com') + \
                   add_keyword('www.ebook777.com') + \
@@ -128,7 +129,10 @@ ANNOYINGTATIONS = add_keyword('www.allitebooks.com') + \
                   add_keyword('WOW!') + \
                   add_keyword('More free ebooks  :  http://fast-file.blogspot.com') + \
                   add_keyword('www.dbebooks.com - Free Books & magazines') + \
+                  add_keyword('Download from www.eBookTM.com') + \
                   add_keyword('www.eBookTM.com') + \
+                  add_keyword('eBook from Wow! eBook dot com') + \
+                  add_keyword('© Osprey Publishing • www.ospreypublishing.com') + \
                   add_keyword('v@v')
 # _e('s/\/URI//') # This will erase all hyperlinks on the document including TOCs
 
@@ -140,7 +144,9 @@ SPECIAL_ANNOYINGTATIONS = add_special_keyword('.*Boykma\.Com') + \
                           add_special_keyword('More free ebooks  :  http:\/\/fast\-file\.blogspot\.com') + \
                           add_special_keyword('Download from Wow! eBook <www.wowebook.com>') + \
                           add_special_keyword('www\.dbebooks\.com \- Free Books \& magazines') + \
-                          add_special_keyword('Download from www.eBookTM.com') + \
+                          add_special_keyword('Download[[:blank:]]*from[[:blank:]]*www\.eBookTM\.Com') + \
+                          add_special_keyword('[\s\S](www\.eBookTM\.Com)$') + \
+                          add_special_keyword('eBook from Wow! eBook dot com') + \
                           add_special_keyword('.*WoweBook\.Com')  # Download at WoweBook.Com
 
 ARGS = PARSER.parse_args()
