@@ -110,6 +110,7 @@ ANNOYINGTATIONS = add_keyword('www.allitebooks.com') + \
                   add_keyword('Download at Boykma.Com') + \
                   add_keyword('Download at Boykma.com') + \
                   add_keyword('Download at WoweBook.Com') + \
+                  add_keyword('Download at Wowebook.com') + \
                   add_keyword('Download at WoweBook.com') + \
                   add_keyword('boykma.com') + \
                   add_keyword('ebookee.org') + \
@@ -120,6 +121,7 @@ ANNOYINGTATIONS = add_keyword('www.allitebooks.com') + \
                   add_keyword('Wow! eBook') + \
                   add_keyword('Wow eBook') + \
                   add_keyword('www.wowebook.org') + \
+                  add_keyword('WWW.WOWEBOOK.COM') + \
                   add_keyword('https://sci101web.wordpress.com') + \
                   add_keyword('Download from Join eBook (www.joinebook.com)') + \
                   add_keyword(':: Collected by PhaKaKrong ::') + \
@@ -127,6 +129,7 @@ ANNOYINGTATIONS = add_keyword('www.allitebooks.com') + \
                   add_keyword('BOOKLEET ©') + \
                   add_keyword('BOOKLEET') + \
                   add_keyword('WOW!') + \
+                  add_keyword('Apago PDF Enhancer!') + \
                   add_keyword('More free ebooks  :  http://fast-file.blogspot.com') + \
                   add_keyword('www.dbebooks.com - Free Books & magazines') + \
                   add_keyword('Download from www.eBookTM.com') + \
@@ -147,6 +150,9 @@ SPECIAL_ANNOYINGTATIONS = add_special_keyword('.*Boykma\.Com') + \
                           add_special_keyword('Download[[:blank:]]*from[[:blank:]]*www\.eBookTM\.Com') + \
                           add_special_keyword('[\s\S](www\.eBookTM\.Com)$') + \
                           add_special_keyword('eBook from Wow! eBook dot com') + \
+                          add_special_keyword('Download from Join eBook (www.joinebook.com)') + \
+                          add_special_keyword('Apago PDF Enhancer') + \
+                          add_special_keyword('.*joinebook\.com') + \
                           add_special_keyword('.*WoweBook\.Com')  # Download at WoweBook.Com
 
 ARGS = PARSER.parse_args()
