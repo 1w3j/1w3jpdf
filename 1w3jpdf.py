@@ -65,7 +65,7 @@ PARSER.add_argument('-sa', '--special-annotations',
 
 def remove_previous_line():
     """Try to wipe the first 150 characters above from the current cursor's position"""
-    print("\033[A" + " " * 110 + "\033[A")
+    print("\033[A" + " " * 1 + "\033[A")
 
 
 def add_keyword(url):
@@ -136,6 +136,16 @@ ANNOYINGTATIONS = add_keyword('www.allitebooks.com') + \
                   add_keyword('www.eBookTM.com') + \
                   add_keyword('eBook from Wow! eBook dot com') + \
                   add_keyword('© Osprey Publishing • www.ospreypublishing.com') + \
+                  add_keyword('http://librosysolucionarios.net/') + \
+                  add_keyword('http://librosysolucionarios.net') + \
+                  add_keyword('http://librosysolucionarios.org/') + \
+                  add_keyword('http://librosysolucionarios.org') + \
+                  add_keyword('www.FreeLibros.me') + \
+                  add_keyword('www.free-ebooks-download.org') + \
+                  add_keyword('Download from finelybook www.finelybook.com') + \
+                  add_keyword('Team-Fly®') + \
+                  add_keyword('Team LRN') + \
+                  add_keyword('TLFeBOOK') + \
                   add_keyword('v@v')
 # _e('s/\/URI//') # This will erase all hyperlinks on the document including TOCs
 
@@ -152,7 +162,14 @@ SPECIAL_ANNOYINGTATIONS = add_special_keyword('.*Boykma\.Com') + \
                           add_special_keyword('eBook from Wow! eBook dot com') + \
                           add_special_keyword('Download from Join eBook (www.joinebook.com)') + \
                           add_special_keyword('Apago PDF Enhancer') + \
+                          add_special_keyword('www\.free-ebooks-download\.org') + \
+                          add_special_keyword('Download from finelybook www\.finelybook\.com') + \
+                          add_special_keyword('BOOKLEET ©') + \
+                          add_special_keyword('www.EliteBook.net') + \
                           add_special_keyword('.*joinebook\.com') + \
+                          add_special_keyword('Team\-Fly®') + \
+                          add_special_keyword('Team LRN') + \
+                          add_special_keyword('TLFeBOOK') + \
                           add_special_keyword('.*WoweBook\.Com')  # Download at WoweBook.Com
 
 ARGS = PARSER.parse_args()
