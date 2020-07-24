@@ -2,7 +2,7 @@
 """
 1w3j's PDF management tool:
 TODO:
-    - Fix v@v, BOOKLEET, ebookTM tags not being removed, needs testing
+    - Fix v@v, tl:q BOOKLEET, ebookTM tags not being removed, needs testing
     - Detect TruePDFs vs converted PDFs
     - Detect _unc and _unc_sed files before processing special annotations to avoid deleting unwanted files
     - Refactor remove_previous_line function to print void characters according to the quantity of chars used on logging
@@ -117,10 +117,10 @@ ANNOYINGTATIONS = add_keyword('www.allitebooks.com') + \
                   add_keyword('ebook3000.com') + \
                   add_keyword('From the Library of Wow! eBook') + \
                   add_keyword('Download from Wow! eBook <www.wowebook.com>') + \
-                  add_keyword('WOW! eBook') + \
-                  add_keyword('Wow! eBook') + \
                   add_keyword('Wow eBook') + \
                   add_keyword('www.wowebook.org') + \
+                  add_keyword('WOW! eBook') + \
+                  add_keyword('Wow! eBook') + \
                   add_keyword('WWW.WOWEBOOK.COM') + \
                   add_keyword('https://sci101web.wordpress.com') + \
                   add_keyword('Download from Join eBook (www.joinebook.com)') + \
@@ -146,12 +146,18 @@ ANNOYINGTATIONS = add_keyword('www.allitebooks.com') + \
                   add_keyword('Team-Fly®') + \
                   add_keyword('Team LRN') + \
                   add_keyword('TLFeBOOK') + \
+                  add_keyword('www.journal-plaza.net & www.freedowns.net') + \
+                  add_keyword('TEAM LinG - Live, Informative, Non-cost and Genuine !') + \
+                  add_keyword('TEAM LinG') + \
+                  add_keyword('www.GFX.0fees.net') + \
+                  add_keyword('laba-ws.blogspot.com') + \
                   add_keyword('v@v')
 # _e('s/\/URI//') # This will erase all hyperlinks on the document including TOCs
 
 #SPECIAL_ANNOYINGTATIONS = add_special_keyword('.*Download \).*\(at\)')  # Download at Boykma.Com -> problem is, it also searches for 'Download ' text on actual document paragraphs
 SPECIAL_ANNOYINGTATIONS = add_special_keyword('.*Boykma\.Com') + \
                           add_special_keyword('WOW\! eBook') + \
+                          add_special_keyword('WOW\!') + \
                           add_special_keyword('www\.wowebook\.org') + \
                           add_special_keyword('www\.allitebooks\.com') + \
                           add_special_keyword('More free ebooks  :  http:\/\/fast\-file\.blogspot\.com') + \
@@ -170,6 +176,8 @@ SPECIAL_ANNOYINGTATIONS = add_special_keyword('.*Boykma\.Com') + \
                           add_special_keyword('Team\-Fly®') + \
                           add_special_keyword('Team LRN') + \
                           add_special_keyword('TLFeBOOK') + \
+                          add_special_keyword('TEAM LinG - Live, Informative, Non-cost and Genuine !') + \
+                          add_special_keyword('TEAM LinG') + \
                           add_special_keyword('.*WoweBook\.Com')  # Download at WoweBook.Com
 
 ARGS = PARSER.parse_args()
