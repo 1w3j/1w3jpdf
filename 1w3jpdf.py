@@ -142,6 +142,7 @@ ANNOYINGTATIONS = add_keyword('www.allitebooks.com') + \
                   add_keyword('http://librosysolucionarios.org') + \
                   add_keyword('www.FreeLibros.me') + \
                   add_keyword('www.free-ebooks-download.org') + \
+                  add_keyword('www.sharexxx.net - free books & magazines') + \
                   add_keyword('Download from finelybook www.finelybook.com') + \
                   add_keyword('Team-Fly®') + \
                   add_keyword('Team LRN') + \
@@ -151,6 +152,7 @@ ANNOYINGTATIONS = add_keyword('www.allitebooks.com') + \
                   add_keyword('TEAM LinG') + \
                   add_keyword('www.GFX.0fees.net') + \
                   add_keyword('laba-ws.blogspot.com') + \
+                  add_keyword('From <www.wowebook.com>') + \
                   add_keyword('v@v')
 # _e('s/\/URI//') # This will erase all hyperlinks on the document including TOCs
 
@@ -176,8 +178,13 @@ SPECIAL_ANNOYINGTATIONS = add_special_keyword('.*Boykma\.Com') + \
                           add_special_keyword('Team\-Fly®') + \
                           add_special_keyword('Team LRN') + \
                           add_special_keyword('TLFeBOOK') + \
+                          add_special_keyword('www\.sharexxx\.net \- free books \& magazines') + \
+                          add_special_keyword('- Live, Informative, Non-cost and Genuine!') + \
+                          add_special_keyword('TEAM LinG - Live, Informative, Non-cost and Genuine!') + \
                           add_special_keyword('TEAM LinG - Live, Informative, Non-cost and Genuine !') + \
                           add_special_keyword('TEAM LinG') + \
+                          add_special_keyword('From \<www\.wowebook\.com\>') + \
+                          add_special_keyword('Download from www\.eBookTM\.com') + \
                           add_special_keyword('.*WoweBook\.Com')  # Download at WoweBook.Com
 
 ARGS = PARSER.parse_args()
