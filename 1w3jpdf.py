@@ -65,6 +65,7 @@ PARSER.add_argument('-sa', '--special-annotations',
 
 def remove_previous_line():
     """Try to wipe the first 150 characters above from the current cursor's position"""
+    print("")
     print("\033[A" + " " * 1 + "\033[A")
 
 
@@ -164,6 +165,7 @@ SPECIAL_ANNOYINGTATIONS = add_special_keyword('.*Boykma\.Com') + \
                           add_special_keyword('WOW\!') + \
                           add_special_keyword('www\.wowebook\.org') + \
                           add_special_keyword('www\.allitebooks\.com') + \
+                          add_special_keyword('www\.allitebooks\.org') + \
                           add_special_keyword('More free ebooks  :  http:\/\/fast\-file\.blogspot\.com') + \
                           add_special_keyword('Download from Wow! eBook <www.wowebook.com>') + \
                           add_special_keyword('www\.dbebooks\.com \- Free Books \& magazines') + \
@@ -306,11 +308,11 @@ for file in ACTUAL_FILES:
                 sys.exit(uncompress)
 
         if len(bytes.decode(exifterr)) != 0 and not had_warnings:
-            EXIFTOOL_LOG = colored(str(COUNT) + ") " + filename[0:60] + ": " + bytes.decode(exifterr), "red")
+            EXIFTOOL_LOG = colored(str(COUNT) + ") " + filename + ": " + bytes.decode(exifterr), "red")
         elif had_warnings:
-            EXIFTOOL_LOG = colored(str(COUNT) + ") " + filename[0:60] + ": " + bytes.decode(exifterr), "yellow")
+            EXIFTOOL_LOG = colored(str(COUNT) + ") " + filename + ": " + bytes.decode(exifterr), "yellow")
         else:
-            EXIFTOOL_LOG = colored(str(COUNT) + ") " + filename[0:60] + " ✓", "green")
+            EXIFTOOL_LOG = colored(str(COUNT) + ") " + filename + " ✓", "green")
 
         print(EXIFTOOL_LOG)
 
