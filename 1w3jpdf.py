@@ -153,10 +153,12 @@ ANNOYINGTATIONS = add_keyword('www.allitebooks.com') + \
                   add_keyword('www.GFX.0fees.net') + \
                   add_keyword('laba-ws.blogspot.com') + \
                   add_keyword('From <www.wowebook.com>') + \
+                  add_keyword('https://avxhm.se/blogs/hill0') + \
                   add_keyword('v@v')
 # _e('s/\/URI//') # This will erase all hyperlinks on the document including TOCs
 
-#SPECIAL_ANNOYINGTATIONS = add_special_keyword('.*Download \).*\(at\)')  # Download at Boykma.Com -> problem is, it also searches for 'Download ' text on actual document paragraphs
+# SPECIAL_ANNOYINGTATIONS = add_special_keyword('.*Download \).*\(at\)')  # Download at Boykma.Com -> problem is,
+# it also searches for 'Download ' text on actual document paragraphs
 SPECIAL_ANNOYINGTATIONS = add_special_keyword('.*Boykma\.Com') + \
                           add_special_keyword('WOW\! eBook') + \
                           add_special_keyword('WOW\!') + \
@@ -296,7 +298,8 @@ for file in ACTUAL_FILES:
                     else:
                         os.remove(sed_file)
                 else:
-                    print(colored("Error on removing special annotations with exit code " + str(unstamp_specials), "red"))
+                    print(
+                        colored("Error on removing special annotations with exit code " + str(unstamp_specials), "red"))
                     sys.exit(unstamp_specials)
             else:
                 print(colored("Error on uncompressing with exit code " + str(uncompress), "red"))
