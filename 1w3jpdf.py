@@ -155,6 +155,7 @@ ANNOYINGTATIONS = add_keyword('www.allitebooks.com') + \
                   add_keyword('laba-ws.blogspot.com') + \
                   add_keyword('From <www.wowebook.com>') + \
                   add_keyword('https://avxhm.se/blogs/hill0') + \
+                  add_keyword('www.EBooksWorld.ir') + \
                   add_keyword('v@v')
 # _e('s/\/URI//') # This will erase all hyperlinks on the document including TOCs
 
